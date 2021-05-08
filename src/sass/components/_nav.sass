@@ -1,0 +1,36 @@
+
+.nav
+    background: var(--primary-color)
+
+    width: 100%
+
+    &__wrapper
+        max-width: var(--max-screen-width)
+        margin: 0 auto
+        //padding: 0 var(--padding)
+        display: flex
+        align-items: center
+        justify-content: space-between
+        min-height: 60px
+
+    &__responsive
+        //justify-content: flex-end
+
+    &__link
+        padding: var(--padding)
+        &s
+            display: flex
+            list-style: none
+            margin: 0
+            padding: 0
+
+        a
+            color: #fff
+            text-decoration: none
+            display: block
+
+        &:hover
+            background: #fff
+
+            a
+                color: var(--primary-color)

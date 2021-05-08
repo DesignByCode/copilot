@@ -1,0 +1,16 @@
+$heading-sizes: (
+    xs: 0.75rem,
+    sm: 0.9rem,
+    md: 1rem,
+    lg: 1.25rem,
+    xl: 2rem,
+    xl-2: 3rem,
+    xl-3: 4rem,
+    xl-4: 5rem
+);
+
+:root {
+    @each $key, $value in $heading-sizes {
+        --heading-#{$key}: #{$value};
+    }
+}

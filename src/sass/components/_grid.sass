@@ -1,0 +1,30 @@
+
+.wrapper
+    margin: 0 auto
+    width: 100%
+    max-width: var(--max-screen-width)
+    padding: var(--padding)
+
+.row
+    display: flex
+    flex-wrap: wrap
+    margin:
+        left: -$padding
+        right: -$padding
+
+.col
+    flex: 0 0 100%
+    padding: var(--padding)
+
+@each $key, $value in $screens
+    @for $i from 1 through $columns
+        .#{$key}-col-#{$i}
+            @extend .col
+
+    @media screen and (min-width: $value)
+        @for $i from 1 through $columns
+            .#{$key}-col-#{$i}
+                flex: 0 0 clean-zero(((100% / $columns) * $i))
+
+            .#{$key}-offset-#{$i - 1}
+                margin-left: clean-zero(((100% / $columns) * ($i - 1)))

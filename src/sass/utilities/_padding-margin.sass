@@ -1,0 +1,19 @@
+
+@each $key, $value in $gutter-size-map
+    /* Loop through padding, margin */
+    @each $mp_key, $mp_value in $gutter-type-map
+        .#{$mp_key}-#{$key}
+            #{$mp_value}: var(--spacing-#{$key})
+
+        .#{$mp_key}x-#{$key}
+            #{$mp_value}-left: var(--spacing-#{$key})
+            #{$mp_value}-right: var(--spacing-#{$key})
+
+        .#{$mp_key}y-#{$key}
+            #{$mp_value}-top: var(--spacing-#{$key})
+            #{$mp_value}-bottom: var(--spacing-#{$key})
+
+        /*  create padding and margin top, left, right, bottom */
+        @each $pos_key, $pos_value in $gutter-position-map
+            .#{$mp_key}#{$pos_key}-#{$key}
+                #{$mp_value}-#{$pos_value}: var(--spacing-#{$key})

@@ -1,0 +1,67 @@
+@import "../functions/map"
+
+.btn
+    padding: var(--button-md-padding)
+    font-size: var(--button-md-font-size)
+    min-width: 64px
+    font-weight: 500
+    line-height: 1
+    border-radius: var(--border-radius)
+    letter-spacing: 0.02857em
+    text-decoration: none
+    cursor: pointer
+    outline: none
+    color: var(--mute-color)
+    display: inline-flex
+    flex: 1
+    justify-content: center
+    align-items: center
+
+    & + &
+        margin-left: calc(var(--padding) / 2)
+
+    &:hover,
+    &:focus
+        box-shadow: rgba(#000, 0.5) 0 5px 8px -4px
+        background-color: var(--mute-color)
+
+    @each $key, $value in $full-color-set
+        &--#{$key}
+            background-color: var(--#{$key}-color)
+            border-color: var(--#{$key}-color)
+            @if lightness($value) > 45%
+                color: #000
+                //color: darken($value, 35%)
+                text-shadow: rgba(#fff, 0.25) 1px 1px 1px
+            @else
+                color: #fff
+                //color: lighten($value, 35%)
+                text-shadow: rgba(#000, 0.25) 1px 1px 1px
+
+            &:hover,
+            &:focus
+                @if lightness($value) > 35%
+                    background-color: darken($value, 10%)
+                @else
+                    background-color: lighten($value, 10%)
+
+            &-outline
+                color: var(--#{$key}-color)
+                border: currentColor 1px solid
+                &:hover,
+                &:focus
+                    background: transparent
+
+    @each $key, $value in $buttons-config
+        &--#{$key}
+            padding: var(--button-#{$key}-padding)
+            line-height: var(--button-#{$key}-font-line-height)
+            font-size: var(--button-#{$key}-font-size)
+
+    &__group
+        display: flex
+
+    &--block
+        display: flex
+        flex: 0 0 1
+        //flex: 1

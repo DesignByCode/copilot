@@ -23,3 +23,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/src/setupTest.js
+/src/reportWebVitals.js
+/src/index.js
+/src/App.test.js
+/src/App.js
+/src/components/*

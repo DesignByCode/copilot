@@ -1,0 +1,31 @@
+*
+    box-sizing: border-box
+
+body,
+html
+    font-family: var(--body-font)
+    line-height: var(--body-line-height)
+    font-size: var(--body-font-size)
+    font-weight: var(--body-font-weight)
+
+
+
+@for $i from 1 through 6
+    h#{$i}
+        font-weight: var(--header-font-weight)
+        font-family: var(--header-font)
+        line-height: 1.2
+        padding: 0
+        margin: 0
+
+.h1
+    +v-rhythm(4)
+.h2
+    +v-rhythm(3)
+.h3
+    +v-rhythm(2)
+.h4
+    +v-rhythm(1)
+.p
+    +v-rhythm(0)
+

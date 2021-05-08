@@ -1,0 +1,36 @@
+@import "../functions/map";
+$buttons-config: (
+    xs: (
+        padding: 6px 12px,
+        size: calc(var(--body-font-size) - 25%),
+        lineHeigh: 1
+    ),
+    sm: (
+        padding: 8px 18px,
+        size: calc(var(--body-font-size) - 12.5%),
+        lineHeigh: 1
+    ) ,
+    md: (
+        padding: 12px 22px,
+        size: var(--body-font-size),
+        lineHeigh: 1
+    ),
+    lg: (
+        padding: 16px 22px,
+        size: calc(var(--body-font-size) + 12.5%),
+        lineHeigh: 1
+    ),
+    xl: (
+        padding: 18px 24px,
+        size: calc(var(--body-font-size) + 25%),
+        lineHeigh: 1
+    )
+);
+
+:root {
+    @each $key, $value in $buttons-config {
+        --button-#{$key}-padding: #{deep-get($buttons-config, $key, "padding")};
+        --button-#{$key}-font-size: #{deep-get($buttons-config, $key, "size")};
+        --button-#{$key}-font-line-height: #{deep-get($buttons-config, $key, "lineHeigh")};
+    }
+}

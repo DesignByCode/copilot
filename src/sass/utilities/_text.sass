@@ -1,0 +1,23 @@
+
+
+
+@each $key, $value in $full-color-set
+    /*  Text colors */
+    .text--#{$key}
+        color: var(--#{$key}-color)
+        /*  Text outline colors */
+        &-outline
+            -webkit-text-stroke: var(--#{$key}-color) 1px
+            color: transparent
+
+@each $key, $i in $heading-sizes
+    .text--#{$key}
+        font-size: var(--heading-#{$key})
+
+@each $var, $val in $screens
+    @media screen and (min-width: $val)
+        @each $key, $i in $heading-sizes
+            .#{$var}-text--#{$key}
+                font-size: var(--heading-#{$key})
+
+

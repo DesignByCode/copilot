@@ -1,0 +1,35 @@
+
+$gutter-position-map: (
+    t: top,
+    r: right,
+    b: bottom,
+    l: left);
+
+$gutter-type-map: (
+    p: padding,
+    m: margin
+);
+
+$gutter-size-map: (
+    0: 0,
+    1: 1px,
+    2: 3px,
+    3: 5px,
+    4: 10px,
+    5: 15px,
+    6: 20px,
+    7: 30px,
+    8: 45px,
+    9: 60px,
+    10: 90px,
+    11: 120px,
+    12: 180px,
+    13: 240px,
+    14: 300px
+);
+
+:root {
+    @each $key, $value in $gutter-size-map {
+        --spacing-#{$key}: #{$value}
+    }
+}
